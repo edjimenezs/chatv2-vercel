@@ -14,7 +14,7 @@ export default function Home() {
   const [inputMessage, setInputMessage] = useState('')
   const [isConnected, setIsConnected] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const { sendMessage: sendMessageToBot } = useSocket()
+  const { sendMessage: sendMessageToBot, isLoading, connectionMode } = useSocket()
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -82,7 +82,7 @@ export default function Home() {
             <div className="flex items-center mt-2">
               <div className="w-3 h-3 rounded-full mr-2 bg-green-500"></div>
               <span className="text-sm text-gray-600">
-                Modo HTTP - Conectado
+                {connectionMode === 'websocket' ? '🟢 WebSocket - Tiempo Real' : '🟡 HTTP - Fallback'}
               </span>
             </div>
           </div>
@@ -132,14 +132,14 @@ export default function Home() {
                   onChange={(e) => setInputMessage(e.target.value)}
                   placeholder="Escribe tu mensaje..."
                   className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  disabled={!isConnected}
+                  disabled={!isConnected || isLoading}
                 />
                 <button
                   type="submit"
-                  disabled={!inputMessage.trim() || !isConnected}
+                  disabled={!inputMessage.trim() || !isConnected || isLoading}
                   className="px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                 >
-                  Enviar
+                  {isLoading ? 'Enviando...' : 'Enviar'}
                 </button>
               </form>
             </div>
