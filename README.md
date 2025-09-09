@@ -127,24 +127,6 @@ theme: {
 - **Múltiples salas**: Implementa rooms de chat
 - **Archivos**: Permite envío de imágenes/archivos
 
-## 🐛 Solución de problemas
-
-### Error 404 en Vercel
-- El proyecto ahora incluye fallback HTTP automático
-- Si WebSocket falla, automáticamente usa HTTP
-- Verifica que `vercel.json` esté configurado correctamente
-
-### WebSocket no conecta
-- El sistema automáticamente cambia a modo HTTP
-- Verifica la consola del navegador para errores
-- El indicador mostrará "Modo HTTP" si WebSocket falla
-
-### Deploy falla en Vercel
-- Verifica que `vercel.json` esté configurado correctamente
-- Asegúrate de que todas las dependencias estén en `package.json`
-- Revisa los logs de build en Vercel
-- El proyecto ahora es compatible con las limitaciones de Vercel
-
 ## 📄 Estructura del proyecto
 
 ```
@@ -173,15 +155,9 @@ chatbot-vercel/
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
-## 📝 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver `LICENSE` para más detalles.
-
 ## 👨‍💻 Autor
 
-**Eduardo Saavedra**
-- GitHub: [@tu-usuario](https://github.com/tu-usuario)
+**Eduardo Jiménez**
+- GitHub: [@edjimenezs](https://github.com/edjimenezs)
 
----
 
-⭐ ¡Dale una estrella si te gustó el proyecto!
