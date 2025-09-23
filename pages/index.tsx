@@ -14,7 +14,7 @@ export default function Home() {
   const [inputMessage, setInputMessage] = useState('')
   const [isConnected, setIsConnected] = useState(false)
   const messagesEndRef = useRef<HTMLDivElement>(null)
-  const { sendMessage } = useSocket()
+  const { sendMessage: sendMessageToBot, connectionMode } = useSocket()
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -149,3 +149,4 @@ export default function Home() {
     </>
   )
 }
+
