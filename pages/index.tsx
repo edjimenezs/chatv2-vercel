@@ -45,7 +45,7 @@ export default function Home() {
     setInputMessage('')
 
     try {
-      const botResponse = await sendMessage(messageToSend)
+      const botResponse = await sendMessageToBot(messageToSend)
       const botMessage: Message = {
         id: (Date.now() + 1).toString(),
         text: botResponse,
@@ -149,4 +149,5 @@ export default function Home() {
     </>
   )
 }
+
 
